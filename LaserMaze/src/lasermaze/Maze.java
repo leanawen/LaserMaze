@@ -21,7 +21,9 @@ public interface Maze {
 	/**
 	 * Function to find a solution of the Laser Maze game.
 	 */
-	public void solveMaze();
+	//public void solveMaze();
+	
+	public void solveMaze(Status current, MyMirror[][] mirrors, int m, int n);
 	
 	
 	/**
@@ -32,5 +34,36 @@ public interface Maze {
 	 */
 	//public void writeResultFile();
 	public void writeResultFile(String outputFile) throws IOException;
+
+	
+	/**
+	 * Get the initial parameters of the laser maze game. 
+	 * Need to be implemented. 
+	 * @return the initial parameters of the game.
+	 */
+	public MazeParameters getMazeParameters();
+	
+	/**
+	 * Get the number of the squares traveled by the laser light before the light come out of the maze.
+	 * Should return -1 if there is loop in the laser light travel path. 
+	 * @return number of the squares traveled
+	 */
+	public int getLength();
+	
+	/**
+	 * Get the X coordination of the final coordination. 
+	 * Should return Integer.MIN_VALUE if there is loop in the laser light travel path. 
+	 * @return X coordination of the final coordination
+	 */
+	public int getFinalCoordinationX();
+	
+	/**
+	 * Get the Y coordination of the final coordination. 
+	 * Should return Integer.MIN_VALUE if there is loop in the laser light travel path. 
+	 * @return Y coordination of the final coordination
+	 * 
+	 */
+	public int getFinalCoordinationY();
+	
 
 }
