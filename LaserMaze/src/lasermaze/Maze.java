@@ -20,6 +20,10 @@ public interface Maze {
 	
 	/**
 	 * Function to find a solution of the Laser Maze game.
+	 * @param current the current status of the laser light.
+	 * @param mirrors an array telling how the mirrors are put in the maze grid. Each array element is a Mirror entity.
+	 * @param m the length of the maze grid
+	 * @param n the width of the maze grid
 	 */
 	//public void solveMaze();
 	

@@ -5,6 +5,11 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 
 import org.junit.Test;
+/**
+ * Test constructor of MazeParameter Class.
+ * @author Jingran
+ *
+ */
 
 public class TestMazeParameterConstructor {
 

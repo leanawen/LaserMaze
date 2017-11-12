@@ -2,8 +2,13 @@ package lasermaze;
 
 import java.io.IOException;
 
+/**
+ * The main() function is included in this class. 
+ * @author Jingran
+ *
+ */
 public class Main {
-public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException{
 		
 		/*Check the input format
 		 * If the count of argument is less than 2, program will be terminated.
