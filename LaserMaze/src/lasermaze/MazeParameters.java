@@ -79,8 +79,20 @@ public class MazeParameters {
 			}else{
 				int x = Integer.parseInt(start[0]);
 				int y = Integer.parseInt(start[1]);
-				String direction = start[2];
-				startStatus = new Status(x, y, direction);
+				String direction = start[2].toUpperCase();
+				if(x < 0 || x > gridSizeX || y < 0 || y > gridSizeY ){
+					System.out.println("The start point should be inside the maze. Please check your input file!");
+					br.close();
+					return;
+				}
+				if(direction.equals("E") || direction.equals("W") || direction.equals("N") || direction.equals("S")){
+					startStatus = new Status(x, y, direction);
+				}else{
+					System.out.println("Only 4 directions are supported: N, S, W, E. Please check your input file!");
+					br.close();
+					return;
+				}
+				
 			}
 			
 			// get the mirrors information
@@ -99,7 +111,19 @@ public class MazeParameters {
 					int x = Integer.parseInt(currentMirror[0]);
 					int y = Integer.parseInt(currentMirror[1]);
 					String status = currentMirror[2];
-					mirrors[y][x].setStatus(status);;
+					if(x < 0 || x > gridSizeX || y < 0 || y > gridSizeY ){
+						System.out.println("The mirror is outside the maze. Please check your input file!");
+						br.close();
+						return;
+					}
+					if(status.equals("\\") || status.equals("/")){
+						mirrors[y][x].setStatus(status);
+					}else{
+						System.out.println("Only 2 types of mirrors are supported: \\ and /. Please check your input file!");
+						br.close();
+						return;
+					}
+					
 				}
 				
 				line3 = br.readLine();
@@ -241,8 +265,20 @@ public class MazeParameters {
 			}else{
 				int x = Integer.parseInt(start[0]);
 				int y = Integer.parseInt(start[1]);
-				String direction = start[2];
-				startStatus = new Status(x, y, direction);
+				String direction = start[2].toUpperCase();
+				if(x < 0 || x > gridSizeX || y < 0 || y > gridSizeY ){
+					System.out.println("The start point should be inside the maze. Please check your input file!");
+					br.close();
+					return;
+				}
+				if(direction.equals("E") || direction.equals("W") || direction.equals("N") || direction.equals("S")){
+					startStatus = new Status(x, y, direction);
+				}else{
+					System.out.println("Only 4 directions are supported: N, S, W, E. Please check your input file!");
+					br.close();
+					return;
+				}
+				
 			}
 			
 			// get the mirrors information
@@ -252,6 +288,7 @@ public class MazeParameters {
 				if(currentMirror.length < 3){
 					if(currentMirror[0].isEmpty()){
 						System.out.println("No mirrors!");
+						br.close();
 						return;
 					}
 					System.out.println("Input file format of mirror is not correct. Please check the input file!");
@@ -261,7 +298,20 @@ public class MazeParameters {
 					int x = Integer.parseInt(currentMirror[0]);
 					int y = Integer.parseInt(currentMirror[1]);
 					String status = currentMirror[2];
-					mirrors[y][x].setStatus(status);;
+					
+					if(x < 0 || x > gridSizeX || y < 0 || y > gridSizeY ){
+						System.out.println("The mirror is outside the maze. Please check your input file!");
+						br.close();
+						return;
+					}
+					if(status.equals("\\") || status.equals("/")){
+						mirrors[y][x].setStatus(status);
+					}else{
+						System.out.println("Only 2 types of mirrors are supported: \\ and /. Please check your input file!");
+						br.close();
+						return;
+					}
+					
 				}
 				
 				line3 = br.readLine();
